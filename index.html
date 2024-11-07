@@ -52,6 +52,7 @@
     <a href="#pregunta1">Pregunta 1</a>
     <a href="#pregunta2">Pregunta 2</a>
     <a href="#pregunta3">Pregunta 3</a>
+    <a href="#pregunta4">Pregunta 4</a>
 </nav>
 
 <!-- Contenido de las preguntas y respuestas -->
@@ -241,6 +242,98 @@
     <h2 id="pregunta3">Pregunta 3</h2>
     <p>Aquí va la respuesta a la pregunta 3.</p>
 </section>
+    
+<section>
+    <h2 id="pregunta4">Pregunta 4</h2>
+        <h1>CREACIÓN DE LA AMI</h1>
+    <ol>
+        <li>Entramos en "AWS" y nos dirigimos al servicio de "EC2".</li>
+        <li>Accedemos a "Instances".</li>
+        <li>Seleccionamos la instancia que creamos en el ejercicio 3, anteriormente llamada "Web Server 1".</li>
+        <li>En "Actions", seleccionamos "Create image" y la configuramos con:
+            <ul>
+                <li>Nombre: <strong>WebServerAMI</strong></li>
+                <li>Descripción de la imagen: <strong>Lab AMI for Web Server</strong></li>
+            </ul>
+        </li>
+        <li>Creamos la imagen.</li>
+    </ol>
+    <h2>AMI CREADA</h2>
 
+    <h1>CREACIÓN DE ‘LOAD BALANCER’</h1>
+    <ol>
+        <li>Seleccionamos "Target Groups" en el menú de la izquierda para definir dónde enviar el tráfico del "Load Balancer".</li>
+        <li>Seguimos los pasos del "Lab" para crear el "Target Group":
+            <ul>
+                <li>Tipo de "target": <strong>Instance</strong></li>
+                <li>Nombre: <strong>LabGroup</strong></li>
+                <li>VPC: <strong>Lab VPC</strong></li>
+            </ul>
+        </li>
+        <li>Revisamos la configuración y creamos el "Load Balancer".</li>
+        <li>En la sección de "Network mapping":
+            <ul>
+                <li>Seleccionamos <strong>Lab VPC</strong> para la VPC.</li>
+                <li>Elegimos las "Availability Zones":
+                    <ul>
+                        <li>Zona 1: <strong>Public Subnet 1</strong></li>
+                        <li>Zona 2: <strong>Public Subnet 2</strong></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>En la sección de "Security groups":
+            <ul>
+                <li>Seleccionamos <strong>Web Security Group</strong>.</li>
+                <li>Eliminamos el "default security group".</li>
+            </ul>
+        </li>
+        <li>En la fila del "Listener" HTTP:80, seleccionamos <strong>LabGroup</strong>.</li>
+        <li>Creamos el "Load Balancer".</li>
+    </ol>
+    <h2>ELB CREADO</h2>
+
+    <h1>CREACIÓN DEL AUTO SCALING GROUP</h1>
+    <ol>
+        <li>En el menú de la izquierda, seleccionamos "Launch Templates" y seguimos los pasos del "Lab".</li>
+        <li>Configuramos el "launch template":
+            <ul>
+                <li>Nombre: <strong>LabConfig</strong></li>
+                <li>Seleccionamos la opción: "Provide guidance to help me set up a template that I can use with EC2 Auto Scaling".</li>
+                <li>En "MyAMIs", seleccionamos <strong>Web Server AMI</strong>.</li>
+                <li>Tipo de instancia: <strong>t2.micro</strong></li>
+                <li>Key pair name: <strong>vockey</strong></li>
+                <li>Security Groups: <strong>Web Security Group</strong></li>
+                <li>En "Advanced details", habilitamos <strong>Detailed CloudWatch monitoring</strong>.</li>
+            </ul>
+        </li>
+        <li>Creación del "launch template".</li>
+        <li>Seleccionamos el "LabConfig launch template" y en "Actions" elegimos "Create Auto Scaling Group".</li>
+        <li>Configuramos el "Auto Scaling Group":
+            <ul>
+                <li>Nombre: <strong>Lab Auto Scaling Group</strong></li>
+                <li>VPC: <strong>Lab VPC</strong></li>
+                <li>"Availability Zones":
+                    <ul>
+                        <li><strong>Private Subnet 1</strong></li>
+                        <li><strong>Private Subnet 2</strong></li>
+                    </ul>
+                </li>
+                <li>En "Configure advanced options", seleccionamos "Attach to an existing load balancer" y luego "Existing load balancer target groups", <strong>LabGroup</strong>.</li>
+                <li>En "Additional settings", habilitamos "Enable group metrics collection within CloudWatch".</li>
+                <li>Configuramos la capacidad del grupo (desired, minimum y maximum capacity).</li>
+                <li>Seleccionamos "Target tracking scaling policy" y configuramos.</li>
+            </ul>
+        </li>
+        <li>Creamos el "Auto Scaling Group".</li>
+    </ol>
+    <h2>TEST AUTO SCALING</h2>
+    <ol>
+        <li>Buscamos el servicio de CloudWatch.</li>
+        <li>En el menú de la izquierda, seleccionamos "All alarms".</li>
+        <li>Comprobamos que se muestran las alarmas. La alarma <strong>AlarmHigh</strong> está en estado OK.</li>
+    </ol>
+</section>
+    
 </body>
 </html>
