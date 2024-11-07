@@ -10,28 +10,37 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            padding-top: 60px;
         }
+        
         header {
             background-color: #4CAF50;
             padding: 10px 0;
             text-align: center;
             color: white;
         }
+        
         nav {
-            background-color: #333;
-            overflow: hidden;
+            position: fixed;  /* Fija el nav en la página */
+            top: 0;           /* Lo mantiene en la parte superior */
+            left: 0;          /* Alineado a la izquierda */
+            width: 100%;      /* Ancho completo */
+            background-color: #333;  /* Fondo oscuro para el nav */
+            overflow: hidden; /* Evita que el contenido sobresalga */
+            z-index: 1000;    /* Asegura que el nav esté encima de otros elementos */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
         }
+        
         nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
+            color: white;           /* Color de texto blanco para los enlaces */
+            text-decoration: none;  /* Elimina subrayado de los enlaces */
+            padding: 14px 20px;     /* Espaciado dentro de los enlaces */
+            float: left;            /* Hace que los enlaces se alineen en línea */
         }
+        
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #ddd; /* Color de fondo al pasar el mouse */
+            color: black;           /* Cambia el color de texto cuando se pasa el mouse */
         }
         section {
             padding: 20px;
@@ -40,16 +49,37 @@
             color: #4CAF50;
         }
         .small-img {
-            width: 50%;  /* Ajusta el tamaño a la mitad de su tamaño original */
+            width: 30%;  /* Ajusta el tamaño a la mitad de su tamaño original */
             height: auto;  /* Mantiene la proporción de la imagen */
             margin: 10px 0;  /* Espaciado entre las imágenes */
         }
+        nav {
+            position: fixed;  /* Fija el nav en la página */
+            top: 0;           /* Lo mantiene en la parte superior */
+            left: 0;          /* Alineado a la izquierda */
+            width: 100%;      /* Ancho completo */
+            background-color: #fff; /* Fondo blanco para que se vea claramente */
+            padding: 10px 0;  /* Espaciado alrededor del contenido */
+            z-index: 1000;    /* Asegura que el nav esté encima de otros elementos */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+        
+        nav a {
+            text-decoration: none; /* Elimina subrayado de los enlaces */
+            margin: 0 15px;        /* Espaciado entre los enlaces */
+            color: #333;           /* Color de texto */
+        }
+        
+        body {
+            padding-top: 60px;  /* Agrega un poco de espacio para evitar que el contenido se quede debajo del nav */
+        }
+
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Preguntas y Respuestas</h1>
+    <h1>RETO INTRO BIG DATA Grupo_12</h1>
 </header>
 
 <!-- Menú de navegación -->
