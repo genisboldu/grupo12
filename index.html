@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas y Respuestas</title>
-    <style>
+        <style>
         /* Estilos básicos para el menú */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 60px;
+            padding-top: 120px; /* Ajuste del espacio para header y nav */
         }
         
         header {
@@ -18,62 +18,49 @@
             padding: 10px 0;
             text-align: center;
             color: white;
+            position: fixed; /* Fija el header en la parte superior */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
         
         nav {
-            position: fixed;  /* Fija el nav en la página */
-            top: 0;           /* Lo mantiene en la parte superior */
-            left: 0;          /* Alineado a la izquierda */
-            width: 100%;      /* Ancho completo */
-            background-color: #333;  /* Fondo oscuro para el nav */
-            overflow: hidden; /* Evita que el contenido sobresalga */
-            z-index: 1000;    /* Asegura que el nav esté encima de otros elementos */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            position: fixed;  /* Fija el nav debajo del header */
+            top: 50px;         /* Ajuste de altura para estar debajo del header */
+            left: 0;
+            width: 100%;
+            background-color: #333; /* Fondo oscuro para el nav */
+            overflow: hidden;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         nav a {
-            color: white;           /* Color de texto blanco para los enlaces */
-            text-decoration: none;  /* Elimina subrayado de los enlaces */
-            padding: 14px 20px;     /* Espaciado dentro de los enlaces */
-            float: left;            /* Hace que los enlaces se alineen en línea */
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            float: left;
         }
         
         nav a:hover {
-            background-color: #ddd; /* Color de fondo al pasar el mouse */
-            color: black;           /* Cambia el color de texto cuando se pasa el mouse */
+            background-color: #ddd;
+            color: black;
         }
+
         section {
             padding: 20px;
         }
+
         h2 {
             color: #1c2c65;
         }
-        .small-img {
-            width: 30%;  /* Ajusta el tamaño a la mitad de su tamaño original */
-            height: auto;  /* Mantiene la proporción de la imagen */
-            margin: 10px 0;  /* Espaciado entre las imágenes */
-        }
-        nav {
-            position: fixed;  /* Fija el nav en la página */
-            top: 0;           /* Lo mantiene en la parte superior */
-            left: 0;          /* Alineado a la izquierda */
-            width: 100%;      /* Ancho completo */
-            background-color: #fff; /* Fondo blanco para que se vea claramente */
-            padding: 10px 0;  /* Espaciado alrededor del contenido */
-            z-index: 1000;    /* Asegura que el nav esté encima de otros elementos */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
-        
-        nav a {
-            text-decoration: none; /* Elimina subrayado de los enlaces */
-            margin: 0 15px;        /* Espaciado entre los enlaces */
-            color: #333;           /* Color de texto */
-        }
-        
-        body {
-            padding-top: 60px;  /* Agrega un poco de espacio para evitar que el contenido se quede debajo del nav */
-        }
 
+        .small-img {
+            width: 30%;
+            height: auto;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
