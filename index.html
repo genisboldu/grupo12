@@ -119,6 +119,9 @@
     <a href="#pregunta2">Pregunta 2</a>
     <a href="#pregunta3">Pregunta 3</a>
     <a href="#pregunta4">Pregunta 4</a>
+    <a href="#pregunta5">Pregunta 5</a>
+    <a href="#pregunta6">Pregunta 6</a>
+    <a href="#pregunta7">Pregunta 7</a>
 </nav>
 
 <!-- Contenido de las preguntas y respuestas -->
@@ -477,6 +480,381 @@
     <img class="small-img" src="ej4cap/cap15.png" />
     <img class="small-img" src="ej4cap/cap16.png" />
 </section>
+
+<section>
+    <h2 id="pregunta5">Pregunta 5</h2>
+    <h3>LAS 5 'V' DEL BIG DATA</h3>
+    <table border="1">
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VOLUMEN</td>
+            <td>
+              Indica la gran cantidad de datos que generan y almacenan grandes plataformas, cómo las redes sociales.<br><br>
+              Una empresa que gestiona una red social, almacena petabytes de datos a través de sus publicaciones, videos, interacciones, y MySQL, es una base de datos que no está preparada para trabajar con estos volúmenes, ya que tiene problemas con la escalabilidad horizontal y gestión de almacenamiento distribuido.
+            </td>
+          </tr>
+          <tr>
+            <td>VELOCIDAD</td>
+            <td>
+              Indica la velocidad en la que se crean y procesan los datos, un campo muy importante ya que estamos acostumbrados a tiempos de carga muy muy lentos.<br><br>
+              Un ejemplo, sería un sistema de mensajería, como podría ser WhatsApp o telegram, en cuando lo enviamos, tiene que marcar al instante, enviado, recibido, y si es el caso, leído. MySQL, tiene retrasos, ya que necesita escribir por cada mensaje una fila y actualizar estados genera cuellos de botella si hay muchos usuarios, millones, enviando mensajes a la vez. La escalabilidad limitada seria otro problema.
+            </td>
+          </tr>
+          <tr>
+            <td>VARIEDAD</td>
+            <td>
+              Indica la variedad de tipo de datos que se pueden procesar, cómo tablas, JSON, XML, imágenes, videos, texto.<br><br>
+              Un ejemplo sería los datos que pude generar un móvil, como las fotos, que son en JPEG, un mensaje, en formato texto y la ubicación, que sería en formato JSON. MySQL, no procesa muy bien formatos JSON ni tampoco las imágenes, penaliza mucho en velocidad y capacidad, si guardamos datos muy grandes y requiere de herramientas externas para procesar datos no estructurados, como las imágenes y videos.
+            </td>
+          </tr>
+          <tr>
+            <td>VERACIDAD</td>
+            <td>
+              Representa la consistencia y la calidad de los datos procesados, tratando problemas como datos incompletos o inconsistencia.<br><br>
+              Un ejemplo sería la gestión de formularios, dónde un usuario puede enviar información con un correo no válido, o ya registrado, o palabras con errores tipográficos. MySQL, no está preparado para validar correos electrónicos con formatos correctos. MySQL, si tiene que corregir errores tipográficos o completar información, tiene que hacer múltiples consultas, o utilizar scripts externos, y eso le penaliza mucho en tiempos de procesamiento.
+            </td>
+          </tr>
+          <tr>
+            <td>VALOR</td>
+            <td>
+              Indica todo el uso que le podemos extraer de los datos, su función es convertir los datos en información de utilidad.<br><br>
+              Un ejemplo sería el historial de compra en Amazon, para recomendar productos de interés o parecidos. MySQL no puede procesar patrones o comportamientos, requiere de herramientas externas para identificar estos patrones, que pude ser muy lento y penalizar en tiempos.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h3>Hadoop</h3>
+        <h1>2. Dos distribuciones de Hadoop</h1>
+        <p>
+          Hadoop es un framework de software de código abierto diseñado específicamente para el procesamiento distribuido y almacenamiento de grandes volúmenes de datos de manera eficiente. Este sistema se basa en el uso de clusters, donde múltiples nodos trabajan de forma coordinada para gestionar datos a gran escala. Se describen dos de las distribuciones más populares: <strong>Cloudera Distribution of Hadoop (CDH)</strong> y <strong>Hortonworks Data Platform (HDP)</strong>, junto con los módulos que incluyen y sus funciones principales.
+        </p>
+      
+        <h2>Cloudera Distribution of Hadoop (CDH)</h2>
+        <p>
+          Cloudera es una de las empresas pioneras en el ecosistema de Hadoop y ofrece CDH como una distribución diseñada específicamente para entornos empresariales. Esta plataforma no solo implementa las capacidades básicas de Hadoop, sino que también incluye herramientas adicionales para análisis, gestión de datos y monitorización. El enfoque de CDH está orientado a facilitar el manejo de grandes volúmenes de información, proporcionando soporte robusto y características avanzadas para el análisis de datos en tiempo real.
+        </p>
+        <h3>Módulos incluidos en CDH y sus funciones:</h3>
+        <ul>
+          <li>
+            <strong>HDFS (Hadoop Distributed File System):</strong> Este módulo es el núcleo del almacenamiento distribuido en CDH. HDFS divide grandes archivos en bloques y los distribuye entre los nodos del cluster, garantizando redundancia y fiabilidad. Esto asegura que los datos se mantengan accesibles incluso en caso de fallos en los nodos.
+          </li>
+          <li>
+            <strong>YARN (Yet Another Resource Negotiator):</strong> Este gestor de recursos distribuidos organiza y asigna de manera eficiente la memoria y el procesamiento a las diferentes aplicaciones que se ejecutan en el cluster. YARN permite que múltiples aplicaciones compartan los recursos del sistema de manera equilibrada.
+          </li>
+          <li>
+            <strong>Apache Hive:</strong> Hive es una herramienta de consulta SQL que permite interactuar con los datos almacenados en HDFS. Es ideal para realizar análisis y consultas estructuradas utilizando un lenguaje similar al SQL, facilitando el acceso a los datos para analistas y desarrolladores.
+          </li>
+          <li>
+            <strong>Apache Impala:</strong> Impala es un motor SQL que complementa a Hive, pero se destaca por su capacidad de realizar análisis de datos en tiempo real. Es ampliamente utilizado en escenarios donde la velocidad es crucial, como en paneles de control interactivos y análisis ad-hoc.
+          </li>
+          <li>
+            <strong>Apache Spark:</strong> Spark es un framework para el procesamiento de datos en memoria. Este módulo es esencial en CDH para realizar análisis rápidos y ejecutar tareas de aprendizaje automático, procesamiento de flujos y consultas interactivas.
+          </li>
+          <li>
+            <strong>Cloudera Manager:</strong> Esta plataforma proporciona una interfaz gráfica para la configuración, monitorización y gestión de clusters Hadoop. Con Cloudera Manager, los administradores pueden supervisar el rendimiento, identificar cuellos de botella y solucionar problemas de manera centralizada.
+          </li>
+        </ul>
+      
+        <h2>Hortonworks Data Platform (HDP)</h2>
+        <p>
+          Hortonworks desarrolló HDP como una distribución completamente de código abierto, orientada a empresas que buscan implementar soluciones Hadoop sin depender de software propietario. HDP se centra en la integración y la simplicidad de uso, ofreciendo herramientas para el procesamiento y la gestión de datos que cumplen con los estándares empresariales. Además, su enfoque en la comunidad y en la interoperabilidad lo convierte en una opción atractiva para muchas organizaciones.
+        </p>
+        <h3>Módulos incluidos en HDP y sus funciones:</h3>
+        <ul>
+          <li>
+            <strong>HDFS y YARN:</strong> Al igual que en CDH, HDFS y YARN forman el núcleo del almacenamiento y la gestión de recursos. HDFS se encarga de almacenar los datos de manera distribuida en todo el cluster, mientras que YARN asigna y gestiona los recursos necesarios para ejecutar aplicaciones de manera eficiente.
+          </li>
+          <li>
+            <strong>Apache Tez:</strong> Tez es una alternativa más avanzada a MapReduce, diseñada para ejecutar flujos de trabajo complejos de manera más rápida y eficiente. Es especialmente útil para tareas como el procesamiento en serie de grandes conjuntos de datos.
+          </li>
+          <li>
+            <strong>Apache Ambari:</strong> Esta herramienta facilita la configuración, monitorización y gestión de los clusters de Hadoop. Ambari ofrece una interfaz gráfica intuitiva que permite a los administradores instalar nuevos nodos, monitorear el rendimiento del cluster y realizar ajustes según sea necesario.
+          </li>
+          <li>
+            <strong>Apache Ranger:</strong> Ranger es un módulo de seguridad que proporciona control de acceso centralizado para los datos almacenados en el cluster. Con Ranger, las empresas pueden definir políticas detalladas para garantizar que solo los usuarios autorizados puedan acceder o modificar ciertos datos.
+          </li>
+          <li>
+            <strong>Apache Kafka:</strong> Este sistema se especializa en la gestión de flujos de datos en tiempo real. Kafka es ideal para casos de uso donde se necesita transmitir y procesar grandes volúmenes de datos en tiempo real, como en aplicaciones de Internet de las Cosas (IoT) o en sistemas de monitoreo continuo.
+          </li>
+          <li>
+            <strong>Apache Atlas:</strong> Este módulo es una herramienta de gestión de metadatos que permite rastrear el linaje de los datos en todo el ecosistema. Con Atlas, los usuarios pueden entender cómo se generan, transforman y consumen los datos, facilitando la auditoría y el cumplimiento normativo.
+          </li>
+        </ul>
+
+        <h1>3. Modos de ejecución de Hadoop</h1>
+        <p>
+            Hadoop puede ejecutarse en tres modos diferentes según el entorno y las necesidades específicas del usuario. 
+            Estos modos son: <strong>modo local (Standalone)</strong>, <strong>modo pseudo-distribuido</strong> y 
+            <strong>modo distribuido</strong>.
+        </p>
+    
+        <h2>Modo local (Standalone)</h2>
+        <p>
+            En este modo, Hadoop opera en un único nodo, y es el modo predeterminado tras su instalación. En este caso, no 
+            se utiliza HDFS ni YARN, ya que todos los procesos se ejecutan localmente en el sistema de archivos del nodo. 
+            Esto hace que sea una configuración simple y rápida para iniciar, ideal para realizar pruebas, desarrollar 
+            aplicaciones o depurar código sin la complejidad de un entorno distribuido. No requiere configuraciones 
+            avanzadas ni múltiples nodos, por lo que es ampliamente utilizado por los desarrolladores durante las primeras 
+            etapas del desarrollo.
+        </p>
+    
+        <h2>Modo pseudo-distribuido</h2>
+        <p>
+            El modo pseudo-distribuido simula un entorno distribuido dentro de un único nodo. En este caso, los principales 
+            servicios de Hadoop, como HDFS, YARN y MapReduce, se configuran para ejecutarse como si estuvieran distribuidos 
+            en un cluster, aunque físicamente están en un solo sistema. Este modo es útil para quienes desean probar 
+            aplicaciones en un entorno que emule las condiciones de un cluster real sin necesidad de contar con múltiples 
+            servidores físicos. Permite identificar cómo se comportarían las aplicaciones y los servicios en un entorno 
+            distribuido antes de desplegarlos en producción.
+        </p>
+    
+        <h2>Modo distribuido</h2>
+        <p>
+            Por último, el modo distribuido es la configuración utilizada en entornos de producción. En este modo, Hadoop 
+            se implementa en un cluster completo que puede incluir múltiples nodos físicos o virtuales. Aquí, HDFS se 
+            encarga de distribuir los datos entre los diferentes nodos del cluster, lo que garantiza un almacenamiento 
+            eficiente y redundante. Por su parte, YARN gestiona los recursos del cluster, asegurando que las aplicaciones 
+            reciban la cantidad adecuada de memoria y capacidad de procesamiento. Este modo es esencial para procesar 
+            grandes volúmenes de datos y aprovechar la capacidad de escalabilidad horizontal que caracteriza a Hadoop. Es 
+            el modo más complejo de configurar y mantener, pero también el más poderoso y eficiente para el procesamiento 
+            de datos a gran escala.
+        </p>
+
+        <h1>4. Roles de los nodos en YARN</h1>
+
+        <h2>Nodo Master (ResourceManager)</h2>
+        <p>
+            El <strong>ResourceManager</strong> es el nodo principal y central del clúster en YARN, encargado de gestionar 
+            todos los recursos disponibles en el sistema. Su función principal es decidir cómo se asignan estos recursos 
+            entre las distintas aplicaciones que se ejecutan en el clúster. Para ello, analiza las solicitudes enviadas por 
+            las aplicaciones a través de sus respectivos <strong>ApplicationMasters</strong> y determina la cantidad de 
+            recursos que se pueden asignar en función de la disponibilidad y las políticas configuradas (como prioridades, 
+            colas y límites de uso).
+        </p>
+        <p>
+            Además de gestionar los recursos, el ResourceManager tiene la tarea de realizar un seguimiento constante de los 
+            trabajos que están en ejecución. Esto implica supervisar su estado y garantizar que los recursos asignados se 
+            utilicen de manera eficiente. También es responsable de la planificación de las tareas, lo que incluye decidir 
+            cuándo y dónde se deben ejecutar los contenedores para maximizar el rendimiento del clúster y evitar cuellos de 
+            botella. Al centralizar la gestión de recursos, el ResourceManager permite optimizar el uso del hardware y 
+            facilita la escalabilidad del sistema.
+        </p>
+    
+        <h2>Nodo Worker (NodeManager)</h2>
+        <p>
+            Cada nodo físico o virtual en un clúster YARN incluye un <strong>NodeManager</strong>, que actúa como el 
+            componente local encargado de gestionar los recursos específicos de ese nodo. Entre los recursos que administra 
+            se encuentran la capacidad de procesamiento (CPU), la memoria y el almacenamiento local. El NodeManager se 
+            asegura de que estos recursos se asignen adecuadamente a las tareas que se ejecutan en el nodo.
+        </p>
+        <p>
+            Una de sus principales funciones es ejecutar los contenedores, que son las unidades de trabajo donde se llevan a 
+            cabo las tareas asignadas por las aplicaciones. Cada contenedor opera dentro de los límites de recursos 
+            establecidos por el NodeManager, garantizando que no haya interferencias entre las tareas.
+        </p>
+        <p>
+            El NodeManager también comunica de manera constante con el ResourceManager, proporcionando información actualizada 
+            sobre el estado de los recursos en su nodo. Esto permite al ResourceManager tomar decisiones informadas sobre cómo 
+            distribuir las próximas tareas en el clúster. Si un nodo experimenta problemas (como fallos en hardware o falta 
+            de recursos), el NodeManager informa de inmediato al ResourceManager para que este pueda reasignar las tareas y 
+            mantener la estabilidad del sistema.
+        </p>
+    
+        <h2>ApplicationMaster</h2>
+        <p>
+            El <strong>ApplicationMaster</strong> es un componente específico para cada aplicación que se ejecuta en el 
+            clúster de YARN. Su papel es coordinar todas las tareas relacionadas con esa aplicación particular. Cuando una 
+            aplicación se inicia, el ApplicationMaster solicita recursos al ResourceManager en nombre de la aplicación, 
+            especificando los requisitos necesarios para completar su trabajo.
+        </p>
+        <p>
+            Una vez que el ResourceManager asigna los recursos, el ApplicationMaster supervisa el progreso de las tareas que 
+            se ejecutan en los contenedores distribuidos en diferentes nodos del clúster. Esto incluye gestionar el 
+            lanzamiento de contenedores, asegurarse de que las tareas se completen correctamente y manejar situaciones de 
+            error, como reiniciar tareas fallidas o reasignarlas a otros nodos.
+        </p>
+        <p>
+            Además, el ApplicationMaster actúa como intermediario entre la aplicación y los nodos del clúster, recopilando y 
+            reportando información sobre el estado y los resultados de las tareas al usuario o al sistema que solicitó la 
+            ejecución. Su existencia permite que cada aplicación tenga un control más personalizado y adaptado a sus 
+            necesidades específicas dentro del entorno distribuido.
+        </p>
+        <br>
+
+        <h3>Hive</h3>
+
+        <h1>5. Diferencias entre MySQL y HiveSQL</h1>
+        
+        <p>Una diferencia entre MySQL y HiveSQL está en la creación de tablas. En MySQL, es necesario definir detalladamente el esquema de la tabla, incluyendo el tipado de los datos y los índices entre tablas.</p>
+        <p>En <strong>HiveSQL</strong>, el tipado de datos es más flexible y permite la definición de tablas externas.</p>
+        
+        <p>MySQL permite operaciones como <strong>INSERT</strong>, <strong>UPDATE</strong> o <strong>DELETE</strong>. Por el contrario, HiveSQL solo permite <strong>INSERT</strong>. Para modificar los datos en HiveSQL, normalmente se crean nuevas tablas o se sobrescriben los datos.</p>
+        
+        <p>MySQL cuenta con una gran variedad de funciones integradas. HiveSQL tiene menos funciones integradas, aunque se puede ampliar mediante funciones creadas por el usuario.</p>
+        
+        <p>MySQL utiliza índices entre tablas para la optimización de consultas. HiveSQL no usa índices tradicionales; en su lugar, depende de otras funciones, como estructuras de archivo, para optimizar las consultas.</p>
+        
+        <p>El tipado de datos es más amplio en MySQL. HiveSQL no tiene un rango tan extenso de tipos de datos, ya que está diseñado para manejar grandes volúmenes de datos. Los tipos más comunes en HiveSQL son <strong>STRING</strong>, <strong>DOUBLE</strong>, <strong>ARRAY</strong>, <strong>MAP</strong>, entre otros.</p>
+        
+
+</section>
+
+<section>
+    <h2 id="pregunta6">Pregunta 6</h2>
+
+    <h1>Indicadores de calidad de aguas subterráneas</h1>
+    <br>
+
+    <p>Captura de pantalla del csv.</p>
+    <img class="small-img" src="partefinal/csv.png" />
+
+    <p>
+        <a href="https://1drv.ms/x/c/682d7208d0a75228/EVdeMsDYCRJMjT1GWSmhX4cB86WCxl2sT2Qd8Dest2Mb3g?e=bbI47d" target="_blank">Abrir archivo compartido</a>
+    </p>
+
+    <p>Captura de pantalla de la sentencia.</p>
+    <img class="small-img" src="partefinal/sentencia.png" />
+    
+</section>
+<section>
+    <h2 id="pregunta7">Pregunta 7</h2>
+    <h1>Introduccion a Tableau</h1>
+    <br>
+    <h1>1.Diferencia entre un gráfico, un dashboard y una story</h1>
+    <ul>
+        <li>
+            Los gráficos son como se representan visualmente los datos en un formato en concreto, como mapas, diagramas...
+        </li>
+        <li>
+            Un dashboard sería un conjunto de gráficos, que se puedes aplicar filtros y elementos agrupados en una sola vista. 
+            Permiten analizar varias perspectivas de datos y explorar relaciones entre diferentes gráficos.
+        </li>
+        <li>
+            Una story es una secuencia de dashboards y gráficos, ordenados para explicar un análisis y conclusiones entre ellos. 
+            Una story facilita al usuario navegar de forma lineal en dashboards y gráficos.
+        </li>
+    </ul>
+    <h1>2.Tres conexiones dónde Tableau puede extraer datos</h1>
+    <ul>
+        <li>Permite conectarnos a Microsoft Excel, con archivos de hojas de cálculo.</li>
+        <li>Permite conexiones a bases de datos, como por ejemplo en SQL Server, para grandes volúmenes de datos.</li>
+        <li>Permite conexiones a servicios en la nube, como Amazon Redshift.</li>
+    </ul>
+    <h1>3.Conexiones en Tableau</h1>
+    <p>
+        En Tableau, cuando trabajamos con datos desde un servidor, tenemos dos modos principales de conexión: 
+        <strong>conexión en vivo</strong> y <strong>extracción</strong>. Estos métodos determinan cómo Tableau accede y 
+        utiliza los datos de la fuente, y cada uno tiene sus propias ventajas y limitaciones que se adaptan a diferentes 
+        necesidades de análisis.
+    </p>
+
+    <h2>Conexión en vivo</h2>
+    <p>
+        La conexión en vivo permite que Tableau se conecte directamente a la fuente de datos alojada en el servidor. Esto 
+        significa que cada vez que interactuamos con un dashboard, realizamos filtros o actualizamos una vista, Tableau 
+        envía una consulta directamente a la base de datos para obtener la información más actualizada.
+    </p>
+
+    <h3>Ventajas</h3>
+    <ul>
+        <li>Siempre se trabaja con datos en tiempo real, lo cual es esencial en entornos donde los datos cambian 
+            constantemente, como en sistemas de ventas en línea, seguimiento de inventarios o análisis financiero en 
+            tiempo real.</li>
+        <li>No es necesario realizar actualizaciones manuales porque los datos se sincronizan directamente desde la 
+            fuente.</li>
+    </ul>
+
+    <h3>Desventajas</h3>
+    <ul>
+        <li>El rendimiento puede depender de la capacidad del servidor donde están alojados los datos y de la velocidad 
+            de la red. Si el servidor es lento o está sobrecargado, el tiempo de respuesta puede ser más largo.</li>
+        <li>El acceso constante al servidor puede aumentar la carga de trabajo en la fuente de datos, especialmente si 
+            hay múltiples usuarios realizando consultas simultáneamente.</li>
+        <li>Requiere una conexión estable a la base de datos; si la conexión se interrumpe, no será posible interactuar 
+            con los datos.</li>
+    </ul>
+
+    <h3>Ejemplo práctico</h3>
+    <p>
+        En una empresa minorista que realiza un seguimiento en tiempo real de las ventas en sus sucursales, una conexión 
+        en vivo garantiza que el equipo de operaciones pueda monitorear instantáneamente las transacciones y ajustar la 
+        logística según la demanda.
+    </p>
+
+    <h2>Extracción</h2>
+    <p>
+        En este modo, Tableau realiza una copia de los datos de la fuente y los almacena localmente en un archivo de 
+        extracción, generalmente en formato .hyper. Esta copia permite trabajar con los datos sin necesidad de mantener 
+        una conexión constante con el servidor.
+    </p>
+
+    <h3>Ventajas</h3>
+    <ul>
+        <li>Ofrece un mejor rendimiento al realizar consultas y actualizaciones en Tableau, ya que los datos se almacenan 
+            de forma local y no se depende de la capacidad de respuesta del servidor.</li>
+        <li>Reduce la carga en la fuente de datos, ya que las consultas no se envían directamente al servidor una vez que 
+            se ha creado la extracción.</li>
+        <li>Permite trabajar con los datos incluso sin conexión a la base de datos, lo cual es útil en entornos donde la 
+            conectividad puede no estar garantizada o donde se necesita movilidad.</li>
+        <li>Puede filtrar y resumir datos antes de extraerlos, lo que ayuda a reducir el tamaño de los conjuntos de datos 
+            grandes y agiliza el análisis.</li>
+    </ul>
+
+    <h3>Desventajas</h3>
+    <ul>
+        <li>Los datos no están en tiempo real. Para reflejar los cambios realizados en la fuente, es necesario actualizar 
+            manualmente la extracción.</li>
+        <li>Si los datos originales son muy grandes, la extracción inicial puede tardar más tiempo y requerir más 
+            almacenamiento local.</li>
+    </ul>
+
+    <h3>Ejemplo práctico</h3>
+    <p>
+        En una empresa que realiza análisis de datos históricos sobre ventas anuales, utilizar una extracción facilita 
+        realizar análisis detallados sin depender de la conectividad con el servidor, ya que los datos no cambian con 
+        frecuencia.
+    </p>
+
+    <h1>4.Tipos de Gráficos</h1>
+
+    <h2>Gráfico de Barras</h2>
+    <p>
+        Representa variables usando barras horizontales o verticales. <br>
+        <strong>Ejemplo:</strong> comparar las concentraciones medias de contaminantes (variable numérica) en distintos puntos geográficos de medición (categoría).
+    </p>
+
+    <h2>Gráfico de Líneas</h2>
+    <p>
+        Representa la relación de dos variables cuantitativas continuas mediante una línea. <br>
+        <strong>Ejemplo:</strong> ver la variación de la concentración media de un contaminante a lo largo del tiempo (series temporales y tendencias).
+    </p>
+
+    <h2>Gráfico de Dispersión (Scatter Plot)</h2>
+    <p>
+        Representa la relación de dos variables cuantitativas mediante puntos. <br>
+        <strong>Ejemplo:</strong> ver si existe correlación entre el peso y la altura de las personas (análisis de regresión).
+    </p>
+
+    <h2>Gráfico Circular</h2>
+    <p>
+        Muestra porciones de distintas categorías dentro de un conjunto de datos. <br>
+        <strong>Ejemplo:</strong> estudiar las categorías de películas más vistas en una plataforma de streaming.
+    </p>
+
+
+</section>
+<section>
+    <h2 id="pregunta8">Pregunta 8</h2>
+    
+</section>
+
 <footer>
     <p>Grupo_12 Reto intro Big data</p>
     <p>Raquel Dominguez, Marc Fiol y Genis Boldú</p>
